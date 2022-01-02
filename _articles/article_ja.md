@@ -364,12 +364,27 @@ Creating file my_docs/source/resources/tools.rst.
 Creating file my_docs/source/resources/modules.rst
 ```
 
+## 3-5. reStructuredText ファイルの編集
+
+
+
 # 4. 落ち穂拾い
 
 
 
 ## 4-1. プライベート関数
 
+## 4-2. 自動ビルド
+
+```sh
+% sphinx-autobuild my_docs/source my_docs/build
+
+# (... 省略 ...)
+build succeeded.
+
+The HTML pages are in my_docs/build.
+[I 220102 17:39:56 server:335] Serving on http://127.0.0.1:8000
+```
 
 
 # さいごに
