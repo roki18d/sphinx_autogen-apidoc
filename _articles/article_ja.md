@@ -329,6 +329,8 @@ import sphinx_fontawesome
 project = 'My Docs'
 copyright = '2022, {Your Name}'
 author = '{Your Name}'
+version = '0.1'
+release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 extensions = [
@@ -446,6 +448,7 @@ build succeeded.
 The HTML pages are in my_docs/build.
 ```
 
+ブラウザで `my_docs/build/index.html` を開くと、以下
 
 # 4. 落ち穂拾い
 

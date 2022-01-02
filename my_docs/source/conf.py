@@ -11,6 +11,8 @@ import sphinx_fontawesome
 project = 'My Docs'
 copyright = '2022, Hiroki Yamagishi'
 author = 'Hiroki Yamagishi'
+version = '0.1'
+release = '0.1'
 
 # -- General configuration ---------------------------------------------------
 extensions = [
