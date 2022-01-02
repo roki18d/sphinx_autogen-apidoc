@@ -56,7 +56,7 @@ Python 3.7.6
 
 自作 Python モジュールのソースコードから...
 
-![](imgs/01-01_python-module-source.png)
+![](imgs/01-01_module-source.png)
 
 以下のような Sphinx ドキュメンテーションを自動生成していきます。
 
@@ -205,8 +205,9 @@ my_module.exceptions.InvalidArgumentsError: Invalid operator 'unknown' was given
 
 ## 2-2. docstring スタイル
 
-本モジュールでは、docstring のスタイルとして Google Style を採用します。後述の Napoleon は、Google Style のほか、NumPy Style をサポートしています。
+本モジュールでは、docstring のスタイルとして Google Style を採用します。Napoleon は Google Style のほか、NumPy Style をサポートしています。
 
+* [sphinx.ext.napoleon - Support for NumPy and Google style docstrings | sphinx-doc.org](https://www.sphinx-doc.org/en/master/usage/extensions/napoleon.html)
 * Google Style: [Example Google Style Python Docstrings | sphinxcontrib-napoleon.readthedocs.io](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
 * NumPy Style: [Example NumPy Style Python Docstrings | sphinxcontrib-napoleon.readthedocs.io](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy)
 
@@ -448,17 +449,31 @@ build succeeded.
 The HTML pages are in my_docs/build.
 ```
 
-ブラウザで `my_docs/build/index.html` を開くと、以下のように表示されます。
+ブラウザで `my_docs/build/index.html` を開くと、以下のようなページが表示されます。
 
-![](imgs/03-02_generated-docs.png)
+![](imgs/03-06_generated-docs.png)
 
 # 4. 落ち穂拾い
 
+## 4-1. プライベートメソッド
 
+クラス内に実装したメソッドのうち、メソッド名先頭にアンダースコア2つがついているもの (例: `__hoge()`) はプライベートメソッドとして認識され、外部からの直接アクセスが出来なくなります。また、デフォルトで Sphinx ドキュメント生成の対象外となります。
 
-## 4-1. プライベート関数
+本記事で使用した `SimpleCalculator` クラスでは、以下のようなプライベートメソッドを実装していました。
+
+|メソッド名|概要|
+|:--|:--|
+|`__add()`|加算処理を実装した内部メソッド|
+|`__sub()`|減算処理を実装した内部メソッド|
+|`__mul()`|乗算処理を実装した内部メソッド|
+|`__div()`|除算処理を実装した内部メソッド|
+|`__handle_exceptions()`|例外ハンドリングを実装した内部メソッド|
+
+ユーザに意識させる必要のない内部メソッドはプライベートメソッドとして実装しておき、ドキュメント生成の対象からも外しておくと良いでしょう。
 
 ## 4-2. 自動ビルド
+
+ドキュメントソースを編集するたびにビルドを実行するのが面倒な場合、`sphinx-autobuild` の機能を利用して自動ビルドするこどができます。
 
 ```sh
 % sphinx-autobuild my_docs/source my_docs/build
@@ -470,8 +485,15 @@ The HTML pages are in my_docs/build.
 [I 220102 17:39:56 server:335] Serving on http://127.0.0.1:8000
 ```
 
+この状態でブラウザから `http://127.0.0.1:8000` にアクセスすると、通常ビルド同様ドキュメンテーションが表示され、ドキュメントソースを編集・保存するたびにページが更新されます。
 
 # さいごに
+
+Python モジュールをチームで開発するようになると、規模が大きくなるにつれてモジュールの全容を把握するのが難しくなってきます。そのため、必要なタイミングでモジュールの使い方を参照できるようにしておくことが重要です。ソースコードからのドキュメント自動生成は、内容の正確性を担保しつつ、メンテナンスの運用を簡素化するのに非常に有効だと思います。
+
+2022年一本目の投稿となりましたが、今年はコード自動生成技術についても勉強していけたらと思います。
+
+最後までご覧頂き、ありがとうございました。
 
 # 参考
 
