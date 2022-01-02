@@ -36,7 +36,7 @@
 
 筆者が動作確認を行った環境は以下の通りです。
 
-```
+```sh
 # OS
 % sw_vers 
 ProductName:    macOS
@@ -66,7 +66,7 @@ Python 3.7.6
 
 本記事では、初期状態として以下のような状態を想定しています。
 
-```
+```sh
 % tree
 .
 ├── LICENSE
@@ -79,7 +79,7 @@ Python 3.7.6
 
 本記事の『[3. 実施手順]()』を実施することで、`my_docs` が作られます。ビルドによって生成されるドキュメンテーションリソースは `my_docs/build` 以下に出力されます。
 
-```
+```sh
 % tree
 .
 ├── LICENSE
@@ -105,7 +105,7 @@ Python 3.7.6
 
 ## 2-1. 自作モジュールの説明
 
-モジュール名は `my_module` としています。例として、四則演算を実行する `SimpleCalculator` クラスを実装した `tools.py` と、そこから利用される例外クラスを実装した `exceptions.py` を作成しています。（docstring 部分に主眼を置いているため、モジュールとして不出来はご容赦ください🙇‍♂️）
+モジュール名は `my_module` としています。例として、四則演算を実行する `SimpleCalculator` クラスを実装した `tools.py` と、そこから利用される例外クラスを実装した `exceptions.py` を作成しています。（docstring 部分に主眼を置いているため、モジュールとしての不出来はご容赦ください🙇‍♂️）
 
 **exceptions.py**
 
@@ -175,7 +175,7 @@ if __name__ == "__main__":
 
 スクリプトとして実行した場合の実行結果は以下のようになります。
 
-```bash
+```sh
 % python my_module/tools.py
 
 Case01: {'operands': {'num1': 4, 'num2': 2}, 'results': {'sum': 6}}
@@ -258,7 +258,41 @@ class SimpleCalculator(object):
 
 # 3. 実施手順
 
+## 3-1. 事前準備
+
+適当なディレクトリ（以下、`$WORK_DIR`）配下で Git リポジトリをクローンし、移動します。
+
+```sh
+% cd $WORKDIR
+% git clone https://github.com/roki18d/sphinx_autogen_apidoc.git
+% cd sphinx_autogen_apidoc.git
+```
+
+本手順の実施によって作成されるリソースが既に存在するため、実施前に削除しておきます。（または `my_docs` を `my_docs2` など、別名に読み替えて実施してください）
+
+```sh
+% rm -rf my_docs
+```
+
+必要に応じて、pyenv や conda 等の Python 仮想環境にスイッチします。本記事では予め作成している `sphinx` という pyenv 仮想環境を使用します。
+
+```sh
+% pyenv local sphinx
+(sphinx) % python --version
+Python 3.7.6
+```
+
+実施に必要な Python ライブラリをインストールします。
+
+```sh
+% pip install -U pip
+% pip install -r requirements.txt
+```
+
+
 # 4. 落ち穂拾い
+
+
 
 ## 4-1. プライベート関数
 
