@@ -193,6 +193,56 @@ my_module.exceptions.InvalidArgumentsError: Invalid operator 'unknown' was given
 
 ## 2-2. docstring スタイル
 
+本モジュールでは、docstring のスタイルとして Google Style を採用します。後述の Napoleon は、Google Style のほか、NumPy Style をサポートしています。
+
+* Google Style: [Example Google Style Python Docstrings | sphinxcontrib-napoleon.readthedocs.io](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+* NumPy Style: [Example NumPy Style Python Docstrings | sphinxcontrib-napoleon.readthedocs.io](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html#example-numpy)
+
+Google Style の記法に従い、`tools.py` の `SimpleCclculator` クラスに対して以下のような docstring を記述しておきます。
+
+```python
+class SimpleCalculator(object): 
+    """SimpleCalculator
+
+    SimpleCalculator is a simple calculator.  
+
+    Attributes: 
+        operator (str): 
+            String that represents operation type. 
+            Acceptable values are: {"add": addition, "sub": subtraction
+            "mul": multiplication, "div": divide}
+        response (dict): 
+            Response for API execution. 
+            This contains conditions (such as operands) and execution results. 
+    """
+
+    # 
+    # (... 省略 ...)
+    # 
+
+    def execute(self, num1: int, num2: int):
+        """
+        Interface to execute caluculation. 
+
+        Args: 
+            num1 (int): 1st operand. 
+            num2 (int): 2nd operand. 
+
+        Returns: 
+            dict: self.response
+
+        Raises: 
+            InvalidArgumentsError: 
+
+        Examples:
+            >>> my_adder = SimpleCalculator(operator="add")
+            >>> my_adder.execute(4, 2)
+            {'operands': {'num1': 4, 'num2': 2}, 'results': {'sum': 6}}
+        """
+        # 
+        # (... 省略 ...)
+        # 
+```
 
 # 3. 実施手順
 
@@ -208,7 +258,7 @@ my_module.exceptions.InvalidArgumentsError: Invalid operator 'unknown' was given
 
 * [Sphinxの使い方．docstringを読み込んで仕様書を生成 | by @futakuchi0117, Qiita](https://qiita.com/futakuchi0117/items/4d3997c1ca1323259844)
 * [doctest --- 対話的な実行例をテストする | docs.python.org](https://docs.python.org/ja/3/library/doctest.html)
-* [Example Google Style Python Docstrings | sphinxcontrib-napoleon.readthedocs.io](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html)
+
 
 
 ---
