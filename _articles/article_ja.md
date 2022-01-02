@@ -290,6 +290,25 @@ Python 3.7.6
 ```
 
 
+## 3-2. ドキュメントリソースの作成
+
+`sphinx-quickstart` コマンドでドキュメントリソースを生成します。オプション引数を与えず、各項目をインタラクティブに設定することもできます。
+
+```sh 
+% sphinx-quickstart my_docs \
+    --sep \
+    --project "My Docs" \
+    --author "{Your Name}" \
+    -v 0.1 \
+    --release 0.1 \
+    --language='en' \
+    --no-batchfile
+```
+
+オプション引数によって設定可能な項目については、以下をご確認ください。
+
+* [sphinx-quickstart | sphinx-doc.org](https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html)
+
 # 4. 落ち穂拾い
 
 
