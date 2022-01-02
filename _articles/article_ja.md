@@ -198,7 +198,7 @@ Traceback (most recent call last):
 my_module.exceptions.InvalidArgumentsError: Invalid operator 'unknown' was given, choose from ['add', 'sub', 'mul', 'div'].
 ```
 
-|ケース|挙動|
+|ケースID|挙動|
 |:--|:--|
 |Case01|引数 (4, 2) の和 (sum) が `response` に格納されます。|
 |Case02|引数に整数以外の値が含まれる場合、`TypeError` が発生し、エラーメッセージが `response` に格納されます。|
@@ -312,14 +312,16 @@ Python 3.7.6
 ```
 
 オプション引数を与えず、各設定内容をインタラクティブに指定することもできます。
-オプション引数によって設定可能な項目については、以下をご確認ください。
+オプション引数で設定可能な項目については、以下をご確認ください。
 
 * [sphinx-quickstart | sphinx-doc.org](https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html)
 
 ## 3-3. `conf.py` の編集
 
-Sphinx ドキュメンテーションビルダーの設定ファイル `my_docs/source/conf.py` を以下のように編集します。
+Sphinx ドキュメンテーションビルダーの設定ファイル `conf.py` を以下のように編集します。
 必要に応じて設定内容を変更してください。
+
+**my_docs/source/conf.py**
 
 ```python
 # Configuration file for the Sphinx documentation builder.
