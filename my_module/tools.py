@@ -20,11 +20,9 @@ class SimpleCalculator(object):
     
     def __init__(self, operator: str) -> None:
         """Initialize instance
-
         Args: 
             operator (str): 
         """
-        
         valid_operators = ["add", "sub", "mul", "div"]
         if operator not in valid_operators:
             msg = f"Invalid operator '{operator}' was given, choose from {valid_operators}."
@@ -102,19 +100,20 @@ class SimpleCalculator(object):
 if __name__ == "__main__":
 
     my_adder = SimpleCalculator(operator="add")
-    print(my_adder.execute(4, 2))
-    print(my_adder.execute(5, "a"))
+    print('Case01:', my_adder.execute(4, 2))
+    print('Case02:', my_adder.execute(5, "a"))
 
     my_subtractor = SimpleCalculator(operator="sub")
-    print(my_subtractor.execute(3, 5))
+    print('Case03:', my_subtractor.execute(3, 5))
 
     my_multiplier = SimpleCalculator(operator="mul")
-    print(my_multiplier.execute(2, 7))
+    print('Case04:', my_multiplier.execute(2, 7))
 
     my_divider = SimpleCalculator(operator="div")
-    print(my_divider.execute(17, 5))
-    print(my_divider.execute(6, 0))
-
+    print('Case05:', my_divider.execute(17, 5))
+    print('Case06:', my_divider.execute(6, 0))
+    
+    print('Case07:')
     my_unknown = SimpleCalculator(operator="unknown")
 
     import sys; sys.exit(0)
