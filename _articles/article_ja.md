@@ -290,9 +290,9 @@ Python 3.7.6
 ```
 
 
-## 3-2. ドキュメントリソースの作成
+## 3-2. プロジェクトの作成
 
-`sphinx-quickstart` コマンドでドキュメントリソースを生成します。オプション引数を与えず、各項目をインタラクティブに設定することもできます。
+`sphinx-quickstart` コマンドを実行し、プロジェクトを生成します。
 
 ```sh 
 % sphinx-quickstart my_docs \
@@ -305,13 +305,15 @@ Python 3.7.6
     --no-batchfile
 ```
 
+オプション引数を与えず、各設定内容をインタラクティブに指定することもできます。
 オプション引数によって設定可能な項目については、以下をご確認ください。
 
 * [sphinx-quickstart | sphinx-doc.org](https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html)
 
 ## 3-3. `conf.py` の編集
 
-Sphinx ドキュメンテーションビルダーの設定ファイル `my_docs/source/conf.py` を以下のように編集します。必要に応じて設定内容を変更してください。
+Sphinx ドキュメンテーションビルダーの設定ファイル `my_docs/source/conf.py` を以下のように編集します。
+必要に応じて設定内容を変更してください。
 
 ```python
 # Configuration file for the Sphinx documentation builder.
@@ -359,6 +361,8 @@ html_static_path = ['_static']
 ```sh
 % mkdir my_docs/source/resources
 ```
+
+`sphinx-apidoc` 
 
 ```
 % sphinx-apidoc --force -o my_docs/source/resources my_module
