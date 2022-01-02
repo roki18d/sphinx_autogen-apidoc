@@ -433,7 +433,7 @@ My Docs
    resources/modules.rst
 ```
 
-## 3-6. ドキュメントのビルド
+## 3-6. ドキュメントソースのビルド
 
 `sphinx-build` コマンドを実行し、ドキュメントソースをビルドします。
 
@@ -448,7 +448,9 @@ build succeeded.
 The HTML pages are in my_docs/build.
 ```
 
-ブラウザで `my_docs/build/index.html` を開くと、以下
+ブラウザで `my_docs/build/index.html` を開くと、以下のように表示されます。
+
+![](imgs/03-02_generated-docs.png)
 
 # 4. 落ち穂拾い
 
