@@ -57,7 +57,7 @@ Python 3.7.6
 
 ## 何をするの？
 
-自作 Python モジュールのソースコードから...
+自作 Python モジュールのソースコードから、
 
 ![](imgs/01-01_module-source.png)
 
