@@ -351,14 +351,17 @@ html_show_sourcelink = False
 html_static_path = ['_static']
 ```
 
-## 3-4. 
+## 3-4. reStructuredText ファイルの生成・編集
+
+`index.rst` 以外の reStructuredText ファイルを格納するためのディレクトリを作成します。
+（`docs/source` 直下に格納しても良いのですが、成果物全体の見通しが悪くなるため、専用のディレクトリを作成しています）
 
 ```sh
 % mkdir my_docs/source/resources
 ```
 
 ```
-% sphinx-apidoc -f -o my_docs/source/resources my_module
+% sphinx-apidoc --force -o my_docs/source/resources my_module
 Creating file my_docs/source/resources/exceptions.rst.
 Creating file my_docs/source/resources/tools.rst.
 Creating file my_docs/source/resources/modules.rst
@@ -366,7 +369,7 @@ Creating file my_docs/source/resources/modules.rst
 
 ## 3-5. reStructuredText ファイルの編集
 
-
+## 3-6. ドキュメントのビルド
 
 # 4. 落ち穂拾い
 
