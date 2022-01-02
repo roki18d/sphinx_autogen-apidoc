@@ -353,16 +353,16 @@ html_show_sourcelink = False
 html_static_path = ['_static']
 ```
 
-## 3-4. reStructuredText ファイルの生成・編集
+## 3-4. Sphinx ソースの生成・編集
 
-`index.rst` 以外の reStructuredText ファイルを格納するためのディレクトリを作成します。
+Sphinx ソースを格納するためのディレクトリを作成します。
 （`docs/source` 直下に格納しても良いのですが、成果物全体の見通しが悪くなるため、専用のディレクトリを作成しています）
 
 ```sh
 % mkdir my_docs/source/resources
 ```
 
-`sphinx-apidoc` 
+`sphinx-apidoc` コマンドを実行し、Sphinx ソースを自動生成します。
 
 ```
 % sphinx-apidoc --force -o my_docs/source/resources my_module
@@ -370,6 +370,12 @@ Creating file my_docs/source/resources/exceptions.rst.
 Creating file my_docs/source/resources/tools.rst.
 Creating file my_docs/source/resources/modules.rst
 ```
+
+`sphinx-apidoc` コマンドの説明は以下の通りです。詳細は下記リンクをご確認ください。
+
+> **sphinx-apidoc** is a tool for automatic generation of Sphinx sources that, using the autodoc extension, document a whole package in the style of other automatic API documentation tools.
+
+* [sphinx-apidoc | sphinx-doc.org](https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html)
 
 ## 3-5. reStructuredText ファイルの編集
 
