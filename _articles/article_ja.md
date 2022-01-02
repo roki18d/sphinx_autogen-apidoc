@@ -107,6 +107,18 @@ Python 3.7.6
 
 モジュール名は `my_module` としています。例として、四則演算を実行する `SimpleCalculator` クラスを実装した `tools.py` と、そこから利用される例外クラスを実装した `exceptions.py` を作成しています。（docstring 部分に主眼を置いているため、モジュールとして不出来はご容赦ください🙇‍♂️）
 
+**exceptions.py**
+
+`Exception` クラスを継承しただけの `InvalidArgumentsError` を定義しています。用途としてはクラス名の通り、クラスやメソッドに対して無効な引数が与えられた場合に使用します。
+
+```python
+#!/usr/bin/env python
+# coding: utf-8
+
+class InvalidArgumentsError(Exception):
+    pass
+```
+
 **tools.py**
 
 以下は `tools.py` の一部抜粋です。（機能の概要説明のため docstring, およびプライベート関数の実装を省略しています）
