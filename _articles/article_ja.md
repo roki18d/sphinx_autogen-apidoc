@@ -365,14 +365,14 @@ html_static_path = ['_static']
 
 ## 3-4. ドキュメントソースの生成
 
-ドキュメントソースを格納するためのディレクトリを作成します。
+ドキュメントソース格納用のディレクトリを作成します。
 （`docs/source` 直下に格納しても良いのですが、成果物全体の見通しが悪くなるため、専用のディレクトリを作成しています）
 
 ```sh
 % mkdir my_docs/source/resources
 ```
 
-`sphinx-apidoc` コマンドを実行し、Sphinx ソースを自動生成します。
+`sphinx-apidoc` コマンドを実行し、ドキュメントソースを自動生成します。
 
 ```
 % sphinx-apidoc --force -o my_docs/source/resources my_module
