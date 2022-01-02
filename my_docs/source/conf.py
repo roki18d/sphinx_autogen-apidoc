@@ -1,7 +1,6 @@
 # Configuration file for the Sphinx documentation builder.
 
 # -- Path setup --------------------------------------------------------------
-
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
@@ -9,14 +8,11 @@ import sphinx_rtd_theme
 import sphinx_fontawesome
 
 # -- Project information -----------------------------------------------------
-
 project = 'My Docs'
 copyright = '2022, Hiroki Yamagishi'
 author = 'Hiroki Yamagishi'
 
-
 # -- General configuration ---------------------------------------------------
-
 extensions = [
     'sphinx.ext.autodoc', 
     'sphinx.ext.napoleon', 
@@ -32,9 +28,7 @@ source_suffix = {
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 exclude_patterns = []
 
-
 # -- Options for HTML output -------------------------------------------------
-
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_show_sourcelink = False

@@ -309,6 +309,48 @@ Python 3.7.6
 
 * [sphinx-quickstart | sphinx-doc.org](https://www.sphinx-doc.org/en/master/man/sphinx-quickstart.html)
 
+## 3-3. `conf.py` の編集
+
+Sphinx ドキュメンテーションビルダーの設定ファイル `my_docs/source/conf.py` を以下のように編集します。必要に応じて設定内容を変更してください。
+
+```python
+# Configuration file for the Sphinx documentation builder.
+
+# -- Path setup --------------------------------------------------------------
+# import os
+# import sys
+# sys.path.insert(0, os.path.abspath('.'))
+import sphinx_rtd_theme
+import sphinx_fontawesome
+
+# -- Project information -----------------------------------------------------
+project = 'My Docs'
+copyright = '2022, {Your Name}'
+author = '{Your Name}'
+
+# -- General configuration ---------------------------------------------------
+extensions = [
+    'sphinx.ext.autodoc', 
+    'sphinx.ext.napoleon', 
+    'sphinx_rtd_theme', 
+    'sphinx_fontawesome', 
+    'myst_parser', 
+]
+source_suffix = {
+    '.rst': 'restructuredtext',
+    '.md': 'markdown',
+}
+
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = []
+
+# -- Options for HTML output -------------------------------------------------
+html_theme = "sphinx_rtd_theme"
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+html_show_sourcelink = False
+html_static_path = ['_static']
+```
+
 # 4. 落ち穂拾い
 
 
