@@ -77,7 +77,7 @@ Python 3.7.6
 └── requirements.txt
 ```
 
-本記事の『[3. 実施手順]()』を実施することで、`my_docs` が作られます。ビルドによって生成されるドキュメンテーションリソースは `my_docs/build` 以下に出力されます。
+本記事の『[3. 実施手順](#3-実施手順)』を実施することで、`my_docs` が作られます。ビルドによって生成されるドキュメンテーションリソースは `my_docs/build` 以下に出力されます。
 
 ```sh
 % tree
@@ -349,6 +349,19 @@ html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_show_sourcelink = False
 html_static_path = ['_static']
+```
+
+## 3-4. 
+
+```sh
+% mkdir my_docs/source/resources
+```
+
+```
+% sphinx-apidoc -f -o my_docs/source/resources my_module
+Creating file my_docs/source/resources/exceptions.rst.
+Creating file my_docs/source/resources/tools.rst.
+Creating file my_docs/source/resources/modules.rst
 ```
 
 # 4. 落ち穂拾い
