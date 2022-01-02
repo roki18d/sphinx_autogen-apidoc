@@ -107,7 +107,7 @@ Python 3.7.6
 
 モジュール名は `my_module` としています。例として、四則演算を実行する `SimpleCalculator` クラスを実装した `tools.py` と、そこから利用される例外クラスを実装した `exceptions.py` を作成しています。（docstring 部分に主眼を置いているため、モジュールとしての不出来はご容赦ください🙇‍♂️）
 
-**exceptions.py**
+**my_module/exceptions.py**
 
 `Exception` クラスを継承しただけの `InvalidArgumentsError` を定義しています。用途としてはクラス名の通り、クラスやメソッドに対して無効な引数が与えられた場合に使用します。
 
@@ -119,7 +119,7 @@ class InvalidArgumentsError(Exception):
     pass
 ```
 
-**tools.py**
+**my_module/tools.py**
 
 以下は `tools.py` の一部抜粋です。（機能の概要説明のため docstring, およびプライベート関数の実装を省略しています）
 
@@ -353,9 +353,9 @@ html_show_sourcelink = False
 html_static_path = ['_static']
 ```
 
-## 3-4. Sphinx ソースの生成・編集
+## 3-4. ドキュメントソースの生成
 
-Sphinx ソースを格納するためのディレクトリを作成します。
+ドキュメントソースを格納するためのディレクトリを作成します。
 （`docs/source` 直下に格納しても良いのですが、成果物全体の見通しが悪くなるため、専用のディレクトリを作成しています）
 
 ```sh
@@ -377,9 +377,75 @@ Creating file my_docs/source/resources/modules.rst
 
 * [sphinx-apidoc | sphinx-doc.org](https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html)
 
-## 3-5. reStructuredText ファイルの編集
+## 3-5. ドキュメントソースの編集
+
+ドキュメントソースファイルを以下のように編集します。
+
+**my_docs/resources/exceptions.rst**
+
+```rest
+my_module.exceptions
+====================
+
+.. automodule:: my_module.exceptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+**my_docs/resources/tools.rst**
+
+```rest
+my_module.tools
+===============
+
+.. automodule:: my_module.tools
+   :members:
+   :undoc-members:
+   :show-inheritance:
+```
+
+**my_docs/resources/modules.rst**
+
+```rest
+my_module
+=========
+
+.. toctree::
+   :maxdepth: 4
+
+   exceptions
+   tools
+```
+
+**my_docs/index.rst**
+
+```rest
+My Docs
+============================================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   resources/modules.rst
+```
 
 ## 3-6. ドキュメントのビルド
+
+`sphinx-build` コマンドを実行し、ドキュメントソースをビルドします。
+
+```sh
+% sphinx-build -b html my_docs/source my_docs/build 
+Running Sphinx v4.3.1
+
+# (... 省略 ...)
+
+build succeeded.
+
+The HTML pages are in my_docs/build.
+```
+
 
 # 4. 落ち穂拾い
 
