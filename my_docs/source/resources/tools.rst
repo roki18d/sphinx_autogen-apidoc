@@ -5,4 +5,3 @@ my_module.tools
    :members:
    :undoc-members:
    :show-inheritance:
-
